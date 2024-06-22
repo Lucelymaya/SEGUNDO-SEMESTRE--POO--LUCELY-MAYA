@@ -1,22 +1,35 @@
 class Carro:
-    def __init__(self, color, marca, modelo):
-        self.color = color
-        self.marca = marca
+    def __init__(self, modelo, anio):
         self.modelo = modelo
-        self.velocidad = 0
+        self.anio = anio
+        self.conductor = None  # Inicialmente, el carro no tiene conductor
 
-    def acelerar(self, incremento):
-        """Aumenta la velocidad del carro."""
-        self.velocidad += incremento
-        print(f"El {self.marca} {self.modelo} aceleró a {self.velocidad} km/h")
+    def asignar_conductor(self, persona):
+        if isinstance(persona, Persona):
+            self.conductor = persona
 
-    def frenar(self, decremento):
-        """Disminuye la velocidad del carro."""
-        self.velocidad = max(0, self.velocidad - decremento)
-        print(f"El {self.marca} {self.modelo} frenó a {self.velocidad} km/h")
+    def __str__(self):
+        return f'Carro {self.modelo} del año {self.anio}, conducido por {self.conductor.nombre if self.conductor else "nadie"}.'
 
-# Ejemplo de creación y uso de un objeto Carro
-mi_carro = Carro('rojo', 'Toyota', 'Corolla')
-mi_carro.acelerar(20)
-mi_carro.frenar(10)
-print(f'La velocidad final de mi carro es: {mi_carro.velocidad} km/h')
+
+class Persona:
+    def __init__(self, nombre, licencia):
+        self.nombre = nombre
+        self.licencia = licencia
+
+    def __str__(self):
+        return f'Persona {self.nombre} con licencia número {self.licencia}.'
+
+
+# Creación de objetos
+carro1 = Carro('Corolla', 1998)
+carro2 = Carro('Blazer', 1997)
+persona = Persona('Laura', 3)
+
+# Asignar un conductor al carro
+carro1.asignar_conductor(persona)
+
+# Ejemplo de salida
+print(carro1)  # Debería imprimir: Carro Corolla del año 1998, conducido por Laura.
+print(carro2)  # Debería imprimir: Carro Blazer del año 1997, conducido por nadie.
+print(persona)  # Debería imprimir: Persona Laura con licencia número 3.
