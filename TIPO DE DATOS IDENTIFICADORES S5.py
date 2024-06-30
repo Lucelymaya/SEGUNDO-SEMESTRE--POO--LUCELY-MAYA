@@ -51,7 +51,7 @@ def gestionar_registro(nombre, edad, altura_m):
     }
 
 
-# area_rectangulo.py
+# area_rectangulo
 # Este programa calcula el área de un rectángulo y un círculo, convierte unidades de medida, y gestiona información básica de un registro.
 
 def calcular_area_rectangulo(ancho, alto):
