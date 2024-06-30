@@ -1,6 +1,8 @@
 # area_rectangulo
 # Este programa calcula el área de un rectángulo y un círculo, convierte unidades de medida, y gestiona información básica de un registro.
 
+import math
+
 def calcular_area_rectangulo(ancho, alto):
     """
     Calcula el área de un rectángulo.
@@ -19,7 +21,6 @@ def calcular_area_circulo(radio):
     :param radio: Radio del círculo (float)
     :return: Área del círculo (float)
     """
-    import math
     return math.pi * radio ** 2
 
 
