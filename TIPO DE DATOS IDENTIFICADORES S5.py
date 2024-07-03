@@ -1,132 +1,47 @@
-# area_rectangulo
-# Este programa calcula el área de un rectángulo y un círculo, convierte unidades de medida, y gestiona información básica de un registro.
+# Calcula el área de un círculo dado su radio.
+# También verifica si el usuario desea calcular otra área, mostrando un mensaje adecuado.
 
 import math
 
-def calcular_area_rectangulo(ancho, alto):
-    """
-    Calcula el área de un rectángulo.
-
-    :param ancho: Ancho del rectángulo (float)
-    :param alto: Alto del rectángulo (float)
-    :return: Área del rectángulo (float)
-    """
-    return ancho * alto
-
 
 def calcular_area_circulo(radio):
     """
-    Calcula el área de un círculo.
+    Esta función calcula el área de un círculo.
 
-    :param radio: Radio del círculo (float)
-    :return: Área del círculo (float)
+    Parámetros:
+    radio (float): El radio del círculo.
+
+    Retorna:
+    float: El área del círculo.
     """
-    return math.pi * radio ** 2
+    # El área de un círculo se calcula con la fórmula: π * radio^2
+    area = math.pi * radio ** 2
+    return area
 
 
-def convertir_metros_a_centimetros(metros):
-    """
-    Convierte una medida en metros a centímetros.
+def main():
+    # Solicitar al usuario que ingrese el radio del círculo
+    radio = float(input("Ingrese el radio del círculo: "))
 
-    :param metros: Medida en metros (float)
-    :return: Medida en centímetros (float)
-    """
-    return metros * 100
+    # Verificar si el radio es positivo (boolean)
+    if radio > 0:
+        # Calcular el área utilizando la función definida
+        area = calcular_area_circulo(radio)
 
+        # Mostrar el resultado
+        print(f"El área del círculo con radio {radio} es {area:.2f}")
+    else:
+        print("El radio debe ser un número positivo.")
+        return  # Salir si el radio no es válido
 
-def gestionar_registro(nombre, edad, altura_m):
-    """
-    Gestiona la información básica de un registro.
+    # Preguntar al usuario si desea calcular otra área (string)
+    respuesta = input("¿Desea calcular el área de otro círculo? (sí/no): ").strip().lower()
 
-    :param nombre: Nombre de la persona (string)
-    :param edad: Edad de la persona (int)
-    :param altura_m: Altura de la persona en metros (float)
-    :return: Diccionario con la información del registro
-    """
-    altura_cm = convertir_metros_a_centimetros(altura_m)
-    return {
-        "nombre": nombre,
-        "edad": edad,
-        "altura_cm": altura_cm
-    }
+    if respuesta == 'sí':
+        main()  # Llamar a la función principal de nuevo si la respuesta es sí
 
 
-# area_rectangulo
-# Este programa calcula el área de un rectángulo y un círculo, convierte unidades de medida, y gestiona información básica de un registro.
 
-def calcular_area_rectangulo(ancho, alto):
-    """
-    Calcula el área de un rectángulo.
-
-    :param ancho: Ancho del rectángulo (float)
-    :param alto: Alto del rectángulo (float)
-    :return: Área del rectángulo (float)
-    """
-    return ancho * alto
-
-
-def calcular_area_circulo(radio):
-    """
-    Calcula el área de un círculo.
-
-    :param radio: Radio del círculo (float)
-    :return: Área del círculo (float)
-    """
-    import math
-    return math.pi * radio ** 2
-
-
-def convertir_metros_a_centimetros(metros):
-    """
-    Convierte una medida en metros a centímetros.
-
-    :param metros: Medida en metros (float)
-    :return: Medida en centímetros (float)
-    """
-    return metros * 100
-
-
-def gestionar_registro(nombre, edad, altura_m):
-    """
-    Gestiona la información básica de un registro.
-
-    :param nombre: Nombre de la persona (string)
-    :param edad: Edad de la persona (int)
-    :param altura_m: Altura de la persona en metros (float)
-    :return: Diccionario con la información del registro
-    """
-    altura_cm = convertir_metros_a_centimetros(altura_m)
-    return {
-        "nombre": nombre,
-        "edad": edad,
-        "altura_cm": altura_cm
-    }
-
-
-# Cálculo del área del rectángulo
-ancho = float(input("Introduce el ancho del rectángulo: "))
-alto = float(input("Introduce el alto del rectángulo: "))
-area_rectangulo = calcular_area_rectangulo(ancho, alto)
-print(f"El área del rectángulo es: {area_rectangulo}")
-
-# Verifica si el área es mayor que un valor umbral (por ejemplo, 50)
-umbral = 50  # integer
-es_area_grande = area_rectangulo > umbral  # boolean
-
-# Muestra un mensaje adicional basado en la comparación
-if es_area_grande:
-    print("El área del rectángulo es grande.")
-else:
-    print("El área del rectángulo es pequeña.")
-
-# Cálculo del área del círculo
-radio = float(input("Introduce el radio del círculo: "))
-area_circulo = calcular_area_circulo(radio)
-print(f"El área del círculo es: {area_circulo}")
-
-# Gestión de información básica de un registro
-nombre = input("Introduce tu nombre: ")
-edad = int(input("Introduce tu edad: "))
-altura_m = float(input("Introduce tu altura en metros: "))
-registro = gestionar_registro(nombre, edad, altura_m)
-print(f"Información del registro: {registro}")
+# Ejecutar la función principal
+if __name__ == "__main__":
+    main()
