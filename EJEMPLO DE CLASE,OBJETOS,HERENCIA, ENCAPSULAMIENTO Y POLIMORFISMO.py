@@ -1,73 +1,29 @@
-# Este codigo gestiona información de vehículos utilizando conceptos de POO:
-# Definición de Clase, Definición de Objeto, Herencia, Encapsulación y Polimorfismo.
+# Aquí hay un ejemplo simple de cómo definir una clase en Python:
 
-class Vehiculo:
-    """
-    Clase base para representar un vehículo.
-    """
+# Aquí hay un ejemplo simple de cómo definir una clase en Python:
 
-    def __init__(self, marca, modelo, año):
+class Coche:
+    def __init__(self, marca, modelo, color):
         self.marca = marca
         self.modelo = modelo
-        self.año = año
-
-    def descripcion(self):
-        """
-        Método que retorna la descripción del vehículo.
-        """
-        return f"{self.marca} {self.modelo} del año {self.año}"
+        self.color = color
 
     def arrancar(self):
-        """
-        Método que simula el arranque del vehículo.
-        """
-        return f"El {self.marca} {self.modelo} está funcionando perfectamente y es muy comodo."
+        print(f"El coche {self.marca} {self.modelo} color {self.color} está arrancando.")
+
+    def informacion(self):
+        print(f"Datos Informativos del coche: {self.marca} {self.modelo} color {self.color}.")
 
 
-class Coche(Vehiculo):
-    """
-    Clase derivada que representa un coche, hereda de Vehiculo.
-    """
+# En este ejemplo, Coche es la clase con atributos marca, modelo, y color, y un método arrancar().
 
-    def __init__(self, marca, modelo, año, puertas):
-        # Llamar al constructor de la clase base
-        super().__init__(marca, modelo, año)
-        # Atributo encapsulado
-        self.__puertas = puertas
+# Creación de Objetos:
 
-    def descripcion(self):
-        """
-        Método sobrescrito que incluye el número de puertas en la descripción.
-        """
-        return f"{self.marca} {self.modelo} del año {self.año} con {self.__puertas} puertas"
+# A partir de esta clase, podemos crear múltiples objetos, cada uno representando un coche específico
+# con sus propias características.
 
-    def obtener_puertas(self):
-        """
-        Método getter para acceder al atributo encapsulado __puertas.
-        """
-        return self.__puertas
+mi_coche = Coche("Suzuki", "SZ", "Gris")
+mi_coche.arrancar()
 
-    def arrancar(self):
-        """
-        Método sobrescrito para incluir un mensaje específico para coches.
-        """
-        return f"El coche {self.marca} {self.modelo} está funcionando perfectamente."
-
-
-def main():
-    # Crear una instancia de Vehiculo
-    vehiculo = Vehiculo("Toyota", "Jeep BJ", 1951)
-    print(vehiculo.descripcion())
-    print(vehiculo.arrancar())
-
-    # Crear una instancia de Coche
-    coche = Coche("Ford", "Mustang", 2021, 4)
-    print(coche.descripcion())
-    print(coche.arrancar())
-    print(f"El coche tiene {coche.obtener_puertas()} puertas.")
-
-
-# Ejecutar la función principal
-if __name__ == "__main__":
-    main()
-
+coche_luis = Coche("KIA", "Sportage", "Azul")
+coche_luis.informacion()
