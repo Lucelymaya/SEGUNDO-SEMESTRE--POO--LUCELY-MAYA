@@ -1,4 +1,4 @@
-# Este programa gestiona información de vehículos utilizando conceptos de POO:
+# Este codigo gestiona información de vehículos utilizando conceptos de POO:
 # Definición de Clase, Definición de Objeto, Herencia, Encapsulación y Polimorfismo.
 
 class Vehiculo:
