@@ -1,4 +1,4 @@
-# Aquí hay un ejemplo simple de cómo definir una clase en Python:
+#  como definir una clase en Python:
 
 # Aquí hay un ejemplo simple de cómo definir una clase en Python:
 
