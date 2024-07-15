@@ -1,51 +1,42 @@
-class FileHandler:
-    def __init__(self, filename):
-        """
-        Constructor de la clase FileHandler.
-        Este método se llama automáticamente cuando se crea una instancia de la clase.
-
-        :param filename: Nombre del archivo que se va a manejar.
-        """
-        self.filename = filename
-        self.file = None
-        self.open_file()
-
-    def open_file(self):
-        """Método para abrir el archivo en modo lectura."""
-        try:
-            self.file = open(self.filename, 'r')
-            print(f"Archivo '{self.filename}' abierto correctamente.")
-        except FileNotFoundError:
-            print(f"Error: El archivo '{self.filename}' no se encontró.")
-            self.file = None
-
-    def read_file(self):
-        """Método para leer el contenido del archivo."""
-        if self.file:
-            content = self.file.read()
-            print("Contenido del archivo:")
-            print(content)
-        else:
-            print("No se puede leer el archivo porque no está abierto.")
+class Libro:
+    def __init__(self, titulo, autor):
+        """Constructor: Inicializa los atributos 'titulo' y 'autor'."""
+        self.titulo = titulo
+        self.autor = autor
+        print(f"Libro '{self.titulo}' por {self.autor} ha sido creado.")
 
     def __del__(self):
-        """
-        Destructor de la clase FileHandler.
-        Este método se llama automáticamente cuando se elimina una instancia de la clase.
-        Se utiliza para liberar recursos, como cerrar archivos abiertos.
-        """
-        if self.file:
-            self.file.close()
-            print(f"Archivo '{self.filename}' cerrado correctamente.")
+        """Destructor: Imprime un mensaje cuando el objeto es destruido."""
+        print(f"Libro '{self.titulo}' por {self.autor} ha sido destruido.")
 
 
-# Uso de la clase FileHandler
-if __name__ == "__main__":
-    # Crear una instancia de FileHandler
-    handler = FileHandler("ejemplo.txt")
+# Crear una instancia de la clase Libro
+mi_libro = Libro("Cien Años de Soledad", "Gabriel García Márquez")
 
-    # Leer el contenido del archivo
-    handler.read_file()
+# Ejemplo de uso del objeto, que luego se destruye cuando sale del alcance o se elimina explícitamente
+del mi_libro  # Esto invoca el destructor
 
-    # La instancia handler será destruida automáticamente al final del programa,
-    # y el destructor (__del__) se llamará para cerrar el archivo.
+# Explicación del código:
+#
+# 1. Constructor (__init__):
+#    - El método __init__ es el constructor de la clase. Se llama automáticamente
+#      cuando se crea una nueva instancia de la clase Libro.
+#    - Inicializa los atributos 'titulo' y 'autor' con los valores proporcionados
+#      como argumentos.
+#    - Imprime un mensaje indicando que el libro ha sido creado.
+#
+# 2. Destructor (__del__):
+#    - El método __del__ es el destructor de la clase. Se llama automáticamente
+#      cuando el objeto es destruido o eliminado.
+#    - Imprime un mensaje indicando que el libro ha sido destruido.
+#    - El destructor se activa en dos situaciones principales:
+#      a) Cuando el objeto sale del alcance y ya no es accesible.
+#      b) Cuando el objeto se elimina explícitamente usando 'del'.
+#
+# 3. Creación y eliminación del objeto:
+#    - Se crea una instancia de la clase Libro llamada 'mi_libro', pasando los
+#      argumentos "Cien Años de Soledad" y "Gabriel García Márquez" al constructor.
+#    - El constructor (__init__) se activa, inicializando los atributos y
+#      imprimiendo el mensaje de creación.
+#    - El objeto 'mi_libro' se elimina explícitamente usando 'del mi_libro'.
+#    - El destructor (__del__) se activa, imprimiendo el mensaje de destrucción.
