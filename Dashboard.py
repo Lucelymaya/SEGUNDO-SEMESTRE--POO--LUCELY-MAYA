@@ -19,7 +19,13 @@ def mostrar_menu():
     ruta_base = os.path.dirname(__file__)
 
     opciones = {
-        '1': 'TAREA SEMANA 2 POO.py',
+        '1': 'Semana 02/TAREA SEMANA 2 POO.py',
+        '2': 'Semana 03/EJEMPLO SEMANA 3 POO.py',
+        '3': 'Semana 03/EJEMPLO SEMANA 3 TRADICIONAL.py',
+        '4': 'Semana 04/EJEMPLOS DEL MUNDO REAL-POO.py',
+        '5': 'Semana 05/TIPO DE DATOS IDENTIFICADORES S5.py',
+        '6': 'Semana 06/EJEMPLO DE CLASE,OBJETOS,HERENCIA, ENCAPSULAMIENTO Y POLIMORFISMO.py',
+        '7': 'Semana 07/Constructores y Destructores.py',
         # Agrega aquí el resto de las rutas de los scripts
     }
 
